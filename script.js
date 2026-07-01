@@ -1,6 +1,7 @@
 const noteButton = document.getElementById("noteButton");
 const intervalButton = document.getElementById("intervalButton");
 const inputText = document.getElementById("inputText");
+const resetButton = document.getElementById("resetButton");
 const noteText = document.getElementById("noteText");
 const intervalText = document.getElementById("intervalText");
 const submitButton = document.getElementById("submitButton");
@@ -18,6 +19,7 @@ const semitones = [0, 2, 4, 5, 7, 9, 10];
 noteButton.addEventListener("click", genrateNote);
 intervalButton.addEventListener("click", genrateInterval);
 submitButton.addEventListener("click", checkAnswer);
+resetButton.addEventListener("click", reset);
 
 function genrateNote() {
     noteNumber = Math.floor(Math.random() * 12);
@@ -49,9 +51,30 @@ function checkAnswer() {
 
     answer = notes[(noteNumber + semitones[number-1]) % 12];
 
-    if (answer.toLowerCase() == guess.toLowerCase()) {
-        correctionText.textContent = "you are correct";
+    if (answer.length > 1) {
+        if (answer.substring(0, 2).toLowerCase() == guess.toLowerCase()) {
+            correctionText.textContent = "that is correct";
+        } else if (answer.substring(3, 5).toLowerCase() == guess.toLowerCase()) {
+            correctionText.textContent = "that is correct";
+        } else {
+            correctionText.textContent = "sorry, that is incorrect";
+        }
+    } else if (answer.toLowerCase() == guess.toLowerCase()) {
+        correctionText.textContent = "that is correct";
     } else {
-        correctionText.textContent = "sorry you are incorrect";
+        correctionText.textContent = "sorry, that is incorrect";
     }
+}
+
+function reset() {
+    let note = "";
+    let number = -1;
+    let guess = "";
+    let noteNumber = -1;
+    let answer = "";
+
+    noteText.textContent = "the current note is: ";
+    intervalText.textContent = "the current interval is: ";
+    inputText.value = "";
+    correctionText.textContent = "that is __";
 }
