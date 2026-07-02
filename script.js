@@ -14,7 +14,7 @@ let noteNumber = -1;
 let answer = "";
 
 const notes = ["C", "C#/Db", "D", "D#/Eb", "E", "F", "F#/Gb", "G", "G#/Ab", "A", "A#/Bb", "B"];
-const semitones = [0, 2, 4, 5, 7, 9, 10];
+const semitones = [0, 2, 4, 5, 7, 9, 11];
 
 noteButton.addEventListener("click", genrateNote);
 intervalButton.addEventListener("click", genrateInterval);
