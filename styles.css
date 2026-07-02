@@ -11,12 +11,17 @@
 }
 
 #mainArea {
-  display: block;
-  text-align: center;
+  display: inline-grid;
+  grid-template-columns: 200px;
+  row-gap: 10px;
 }
 
 p {
     text-align: center;
     margin: 0px;
     padding: 1.4000px;
+}
+
+body {
+  text-align: center;
 }

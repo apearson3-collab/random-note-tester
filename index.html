@@ -8,18 +8,16 @@
     </head>
     <body>
         <div id = "mainArea">
-            <span id = "input">
-                <button id="noteButton">genrate note</button>
-                <button id="intervalButton">genrate number</button>
-                <input type="text" id="inputText">
-                <button id="resetButton">reset</button>
-            </span>
-            <span id = "output">
-                <p id="noteText">the current note is: </p>
-                <p id="intervalText">the current interval is: </p>
-                <button id="submitButton">check Answer</button>
-                <p id="isCorrect">that is __</p>
-            </span>
+            <button id = "noteButton">genrate note</button>
+            <p id = "noteText">the current note is: </p>
+            <button id = "intervalButton">genrate number</button>
+            <p id = "intervalText">the current interval is: </p>
+            <input type = "text" id = "inputText" maxlength = "2">
+            <button id = "submitButton">check Answer</button>
+            <p id = "isCorrect">that is __</p>
+            <button id = "resetButton">reset</button>
+            <button id = "showAnswer">reveal answer</button>
+            <p id = "seeAnswer"></p>
         </div>
         <script src="script.js"></script>
     </body>

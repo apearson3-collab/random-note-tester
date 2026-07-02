@@ -7,6 +7,9 @@ const intervalText = document.getElementById("intervalText");
 const submitButton = document.getElementById("submitButton");
 const correctionText = document.getElementById("isCorrect");
 
+const showAnswer = document.getElementById("showAnswer");
+const answerText = document.getElementById("seeAnswer")
+
 let note = "";
 let number = -1;
 let guess = "";
@@ -20,14 +23,19 @@ noteButton.addEventListener("click", genrateNote);
 intervalButton.addEventListener("click", genrateInterval);
 submitButton.addEventListener("click", checkAnswer);
 resetButton.addEventListener("click", reset);
+showAnswer.addEventListener("click", revealAnswer);
 
 function genrateNote() {
+    answerText.textContent = "";
+    correctionText.textContent = "that is __";
     noteNumber = Math.floor(Math.random() * 12);
 
     noteText.textContent = "the current note is: " + notes[noteNumber];
 }
 
 function genrateInterval() {
+    answerText.textContent = "";
+    correctionText.textContent = "that is __";
     number = (Math.floor(Math.random() * 12) + 1);
     if (number == 12) {
         number = 13;
@@ -77,4 +85,11 @@ function reset() {
     intervalText.textContent = "the current interval is: ";
     inputText.value = "";
     correctionText.textContent = "that is __";
+    answerText.textContent = "";
+}
+
+function revealAnswer() {
+    answer = notes[(noteNumber + semitones[number-1]) % 12];
+
+    answerText.textContent = "the answer is " + answer;
 }
